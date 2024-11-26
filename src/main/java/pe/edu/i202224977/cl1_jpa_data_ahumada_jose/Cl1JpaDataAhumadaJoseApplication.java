@@ -12,6 +12,7 @@ import pe.edu.i202224977.cl1_jpa_data_ahumada_jose.repository.CountryRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class Cl1JpaDataAhumadaJoseApplication implements CommandLineRunner {
@@ -65,11 +66,27 @@ public class Cl1JpaDataAhumadaJoseApplication implements CommandLineRunner {
 //			System.out.println("Elemento de id " + id + " fue eliminado correctamente");
 //		}
 
-//		String id = "PER";
+//		String id = "COL";
 //		if (countryRepository.existsById(id)){
 //			countryRepository.deleteById(id);
 //		} else {
 //			System.out.println("Elemento de id " + id + " fue eliminado correctamente");
 //		}
+
+		/**
+		 * deleteAllById
+
+		//eliminar varios
+		List<String> ids = List.of("ARG","COL");
+
+		List<String> idsExistentes= ids.stream().filter(countryRepository::existsById).collect(Collectors.toList());
+
+		if(!idsExistentes.isEmpty()){
+			countryRepository.deleteAllById(idsExistentes);
+		} else {
+			System.out.println("Ids no existe en BD");
+		}*/
+
+
 	}
 }
